@@ -33,4 +33,13 @@ def predecir_ventas_altas(datos: EntradaModelo):
         "ventas_altas": int(pred),
         "probabilidad": round(float(prob), 3)
     }
-    
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://miapp.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
